@@ -1,0 +1,9 @@
+@use "normalize";
+
+$background-color: yellow;
+$text-color: white;
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+}
