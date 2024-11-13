@@ -1,32 +1,57 @@
-
-// Reusables in this file
-$shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.5);
-$trans: background 0.25s ease;
+@use 'sass:color';
 
 // Colors
-$pri: red;
+$pri: maroon;
 $sec: orange;
 $ter: blue;
 
-// Paragraphs and Text
+$pri-dark: color.scale($pri, $lightness: -40%);
+$sec-dark: color.scale($sec, $lightness: -40%);
+$ter-dark: color.scale($ter, $lightness: -40%);
+$pri-light: color.scale($pri, $lightness: 10%);
+$sec-light: color.scale($sec, $lightness: 10%);
+$ter-light: color.scale($ter, $lightness: 10%);
+
+// Top Level Backgrounds & Color
+$body-bg: antiquewhite;
+$body-color: #333;
+$main-bg: antiquewhite;
+$main-color: #333;
+
+// Font Size, Paragraphs and Text
+$font-size: 16px;
 $p-color: #333;
 $p-line-height: 1.625rem;
 $p-mar-bot: 1.5rem;
 $p-size: 1.25rem;
 
-
 // Links & Nav
 $link-color: cyan;
 $nav-base-bg: forestgreen;
-$nav-bg: green;
-$nav-bg-hover: darkgreen;
-$nav-link-color: navy;
-$nav-link-color-hover: cyan;
+$nav-bg: $pri;
+$nav-bg-hover: $pri-light;
+$nav-link-color: $ter;
+$nav-link-color-hover: $sec;
 $nav-link-padding: 10px;
 
 // Wrap & Container
 $wrap: 5%;
 $con: 1rem;
+
+// H1 to H6
+$h1-color: $pri;
+$h1-size: 2rem;
+$h1-mar-bot: 1.5rem;
+$h2-color: $sec;
+$h2-size: 1.375rem;
+$h2-mar-bot: 1.25rem;
+$h3-color: $ter;
+$h3-size: 1.125rem;
+$h3-mar-bot: 1rem;
+
+// Various Reusables
+$shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.5);
+$trans: background 0.25s ease;
 
 // Tables
 $table-margin: 1rem 0;
@@ -71,6 +96,15 @@ $card-border: 1px solid #CCC;
 $card-border-radius: 20px;
 $card-padding: 10px 25px;
 $card-shadow: $shadow; 
+
+// Tabs
+$tabs-bg: red;
+$tabs-bg-active: pink;
+$tabs-bg-hover: blue;
+$tabs-border: 1px solid #CCC;
+$tabs-border-radius: 6px;
+$tabs-color: white;
+$tabs-padding: 5px;
 
 // Scroll Bar
 $scroll-thumb-color: #444;

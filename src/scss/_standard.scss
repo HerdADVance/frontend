@@ -4,20 +4,34 @@
 *{box-sizing: border-box; font-weight: 500; margin: 0; padding: 0}
 *:focus{outline: none;}
 
-/* Basic Flexbox Layout */
-html{display: flex; font-size: 16px;}
-body{display: flex; flex-direction:column; min-height: calc(100vh - 1px); width: 100%;}
-main{flex: 1 0 auto; flex-direction: column; flex-grow: 1;}
+/* Top level tags & flexbox layout */
+html{display: flex; font-size: $font-size;}
+body{background: $body-bg; color: $body-color; display: flex; flex-direction:column; min-height: calc(100vh - 1px); width: 100%;}
+main{background: $main-bg; color: $main-color; flex: 1 0 auto; flex-direction: column; flex-grow: 1;}
 
 /* Block display for certain tags */ 
-article, aside, block, details, figcaption, figure, footer, header, hgroup, input, label, menu, nav, section, textarea{display: block;}
+article, aside, block, details, figcaption, figure, .footer, .header, hgroup, input, label, menu, nav, section, textarea{display: block;}
 
 /* Flex clear for certain tags and clear class */
-header, .nav, main, footer, section{display: flex; flex-direction: column; flex-wrap: wrap;}
+.header, .nav, main, .footer, section{display: flex; flex-direction: column; flex-wrap: wrap;}
+
+/* H1 to H6 */
+h1, h2, h3, h4, h5, h6{font-weight: bold;}
+h1{color: $h1-color; font-size: $h1-size; margin-bottom: $h1-mar-bot;}
+h2{color: $h2-color; font-size: $h2-size; margin-bottom: $h2-mar-bot;}
+h3{color: $h3-color; font-size: $h3-size; margin-bottom: $h3-mar-bot;}
 
 /* Links */
 a{color: $link-color; text-decoration: none;}
 a:hover{text-decoration: underline;}
+
+/* Nav */
+.nav{display: block; width: 100%;}
+.nav ul{background: $nav-base-bg; display: flex;}
+.nav li{background: $nav-bg; flex: 1 1 0; text-align: center; transition: $trans;}
+.nav li:hover{background: $nav-bg-hover;}
+.nav li a{color: $nav-link-color; display: block; padding: $nav-link-padding;}
+.nav li:hover a{color: $nav-link-color-hover; text-decoration: none; width: 100%;}
 
 /* Images */
 img{max-width:100%; vertical-align:bottom}
@@ -50,14 +64,6 @@ input::placeholder{color: #BBB; font-size: 0.875rem;}
 
 
 /* ===== UTILITY CLASSES ======
-
-/* Nav */
-.nav{display: block; width: 100%;}
-.nav ul{background: $nav-base-bg; display: flex;}
-.nav li{background: $nav-bg; flex: 1 1 0; text-align: center; transition: $trans;}
-.nav li:hover{background: $nav-bg-hover;}
-.nav li a{color: $nav-link-color; display: block; padding: $nav-link-padding;}
-.nav li:hover a{color: $nav-link-color-hover; text-decoration: none; width: 100%;}
 
 /* Container */
 .con{margin: $con;}
@@ -153,13 +159,12 @@ input::placeholder{color: #BBB; font-size: 0.875rem;}
 
 /* Cards */
 .card{background: $card-bg; border: $card-border; border-radius: $card-border-radius; box-shadow: $card-shadow; padding: $card-padding;}
-.card p{color: antiquewhite; font-size: 1.25rem; line-height: 2rem; margin-bottom: 1.75rem;}
 
 /* Tabs */
-.active{background: #abe6c8 !important;}
-.tabs{border-bottom: 1px solid #CCC; float: right; width: 100%;}
-.tabs li{border: 1px solid #CCC; border-top-left-radius: 6px; border-top-right-radius: 6px; cursor: pointer; float: right; padding: 5px; user-select: none;}
-.tabs li:last-child{margin-right: 5px;}
+.tabs{display: flex;}
+.tabs li{background: $tabs-bg; border: $tabs-border; border-top-left-radius: $tabs-border-radius; border-top-right-radius: $tabs-border-radius; color: $tabs-color; cursor: pointer; padding: $tabs-padding; user-select: none;}
+.tabs li:hover{background: $tabs-bg-hover;}
+.tabs li.active{background: $tabs-bg-active;}
 
 /* Hide or hide on desktop */
 .hide, .mob{display: none;}
