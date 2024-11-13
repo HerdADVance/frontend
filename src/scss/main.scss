@@ -2,32 +2,12 @@
 @use "vars" as *;
 @use "standard";
 
+$primary: blue;
+$secondary: orange;
 
-// *{box-sizing: border-box; font-weight: 500; margin: 0; padding: 0;}
-// *:focus{outline:none}
-
-// html, body{height: 100%; margin: 0;}
-// body{display: flex; flex-direction: column;}
-// main{flex: 1; background: yellow; overflow-y: auto;}
-// main div{height: 2000px;}
-// header{background: blue; height: 200px;}
-// footer{background: navy; height: 75px;}
-// header,section,main,footer,.row,.clear{clear:both}
-// header:after,section:after,main:after,footer:after,.row:after,.clear:after{clear:both;content:"";display:table}
-// article, aside, details, figcaption, figure, footer, header, hgroup, input, label, menu, nav, section, textarea{display: block; }
-
-
-// html{display:flex; font-size: 16px;}
-// body{display:flex; flex-direction:column; min-height: 100vh; width:100%}
-// main{flex: 1 0 auto; flex-grow:1;}
-// header,section,main,footer,.row,.clear{clear:both}
-// header:after,section:after,main:after,footer:after,.row:after,.clear:after{clear:both;content:"";display:table}
-// article, aside, details, figcaption, figure, footer, header, hgroup, input, label, menu, nav, section, textarea{display: block; }
-
-header{background: $bg; min-height: 200px;}
+header{background: $primary;}
 footer{background: navy; height: 75px;}
-
-header div div{border: 1px solid #CCC; float: left; width: 33.3333%;}
+main{color: black;}
 #b{height: 300px;}
 
 $background-color: antiquewhite;
@@ -37,3 +17,5 @@ body {
   background-color: $background-color;
   color: $text-color;
 }
+
+a{color: $primary;}
