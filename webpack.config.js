@@ -27,15 +27,42 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{
-				test: /\.scss$/,
-				use: [
-		          MiniCssExtractPlugin.loader,
-		          'css-loader',
-		          'sass-loader'
-		        ]
-			}
-		]
+	      {
+	        test: /\.scss$/,
+	        use: [
+	          MiniCssExtractPlugin.loader,
+	          {
+	            loader: 'css-loader',
+	            options: {
+	              sourceMap: true
+	            }
+	          },
+	          {
+	            loader: 'postcss-loader',
+	            options: {
+	              postcssOptions: {
+	                plugins: [
+	                  [
+	                    'cssnano',
+	                    {
+	                      // cssnano options
+	                      preset: ['default', {
+	                        discardComments: {
+	                          removeAll: true,
+	                        },
+	                        mergeLonghand: true,
+	                        mergeRules: true
+	                      }],
+	                    },
+	                  ],
+	                ],
+	              },
+	            },
+	          },
+	          'sass-loader'
+	        ]
+	      }
+	    ]
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
