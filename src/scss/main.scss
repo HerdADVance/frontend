@@ -1,11 +1,9 @@
 @use "normalize";
-@use "vars" as *;
+@use "standard-vars" as *;
 @use "standard";
 
-$primary: red;
-$secondary: orange;
 
-header{background: $primary;}
+header{background: $pri;}
 footer{background: navy; height: 75px;}
 main{color: black;}
 #b{height: 300px;}
@@ -17,5 +15,3 @@ body {
   background-color: $background-color;
   color: $text-color;
 }
-
-a{color: $primary;}

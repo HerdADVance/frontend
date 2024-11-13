@@ -1,4 +1,4 @@
-@use "vars" as *;
+@use "standard-vars" as *;
 
 /* Everything gets border box, normal font weight, and no margins/padding/focus outline */
 *{box-sizing: border-box; font-weight: 500; margin: 0; padding: 0}
@@ -10,40 +10,57 @@ body{display: flex; flex-direction:column; min-height: calc(100vh - 1px); width:
 main{flex: 1 0 auto; flex-direction: column; flex-grow: 1;}
 
 /* Block display for certain tags */ 
-article, aside, details, figcaption, figure, footer, header, hgroup, input, label, menu, nav, section, textarea{display: block; }
+article, aside, block, details, figcaption, figure, footer, header, hgroup, input, label, menu, nav, section, textarea{display: block;}
 
 /* Flex clear for certain tags and clear class */
-header, main, footer, section, .clear{display: flex; flex-wrap: wrap;}
+header, .nav, main, footer, section{display: flex; flex-direction: column; flex-wrap: wrap;}
 
 /* Links */
-a{text-decoration: none;}
+a{color: $link-color; text-decoration: none;}
 a:hover{text-decoration: underline;}
 
 /* Images */
 img{max-width:100%; vertical-align:bottom}
 
 /* Tables */
-table{border-collapse: collapse; border-spacing: 0; margin: 1rem 0; max-width: 100%; width: 100%;}
-th{background: $th-bg; color: $th-color;}
-td{border: 1px solid #EEE; padding: $td-padding; text-align: center;}
+table{border-collapse: collapse; border-spacing: 0; margin: $table-margin; max-width: 100%; width: 100%;}
+th{background: $th-bg; color: $th-color; padding: $th-padding;}
+td{border: $td-border; padding: $td-padding; text-align: center;}
 
-/* Lists */
+/* Lists and Nav */
 ol, ul {list-style: none; list-style-position: inside;}
+
+/* Paragraphs and Text */
+p{color: $p-color; font-size: $p-size; line-height: $p-line-height; margin-bottom: $p-mar-bot;}
 
 /* Forms & Buttons */
 form{width: 100%;}
-button{border: none; box-shadow: $button-shadow; cursor: pointer; padding: $button-padding; transition: $button-trans; user-select: none;}
-input, label, textarea{margin-bottom: 1rem; width: 100%;}
-label{color: $label-color; font-size: 0.875rem; font-weight: bold; margin-bottom: 0.375rem; text-align: left;}
-input{background: $input-bg; border: 1px solid #333; display: block; padding: 0.75rem 0.625rem;}
-input[type=submit]{background: $button-bg; border: none; color: floralwhite; cursor: pointer; font-size: 1.25rem; margin-top: 2rem; padding: 1rem; text-indent: 0; transition: $button-trans; user-select: none;}
-input[type=submit]:hover{background: $button-hover-bg;}
+button{background: $button-bg; border: none; box-shadow: $button-shadow; color: $button-color; cursor: pointer; font-size: $button-size; margin-top: $button-mar-top; padding: $button-padding; transition: $button-trans; user-select: none;}
+button[type=submit], input[type=submit]{}
+button:hover{background: $button-hover-bg;}
+input, textarea{background: $input-bg; border: $input-border; display: block; margin-bottom: $input-mar-bot; padding: $input-padding; width: 100%;}
+label{color: $label-color; font-size: $label-size; font-weight: bold; $margin-bottom: $label-mar-bot; text-align: left; width: 100%;}
 input::placeholder{color: #BBB; font-size: 0.875rem;}
 
 /* Scroll bar */
-::-webkit-scrollbar{width: 8px;}
-::-webkit-scrollbar-track{background: #111;}
-::-webkit-scrollbar-thumb{background: #444;}
+::-webkit-scrollbar{width: $scroll-width;}
+::-webkit-scrollbar-track{background: $scroll-track-color;}
+::-webkit-scrollbar-thumb{background: $scroll-thumb-color;}
+
+
+
+/* ===== UTILITY CLASSES ======
+
+/* Nav */
+.nav{display: block; width: 100%;}
+.nav ul{background: $nav-base-bg; display: flex;}
+.nav li{background: $nav-bg; flex: 1 1 0; text-align: center; transition: $trans;}
+.nav li:hover{background: $nav-bg-hover;}
+.nav li a{color: $nav-link-color; display: block; padding: $nav-link-padding;}
+.nav li:hover a{color: $nav-link-color-hover; text-decoration: none; width: 100%;}
+
+/* Container */
+.con{margin: $con;}
 
 /* Cols and Rows */
 .row{display: flex; flex-wrap: wrap; width: 100%;}
@@ -124,30 +141,31 @@ input::placeholder{color: #BBB; font-size: 0.875rem;}
 .no-bg{background: none !important;}
 
 /* Modals and Overlays */
-.overlay{background: rgba(19,156,113,0.92); height: 100%; left: 0; position: fixed; text-align: center; top: 0; z-index: 9; width: 100%;}
-.overlay.error{background: rgba(244,4,39,0.92);}
-.overlay-inner{align-items: center; display: flex; flex-direction: column; height: 100%; justify-content: center;}
-.overlay h1{color: #FFF; font-size: 2.5rem; margin-bottom: 0.75rem;}
-.overlay p{color: #EEE; font-size: 1.25rem;}
-.overlay .btn{background: #29050f;}
-.overlay .btn:hover{background: #6a0924;}
-.modal{background: #FFF; border-radius: 20px; height: 300px; padding: 10px 25px; position: fixed; width: 500px; z-index: 999;}
-
-/* Container */
-.con{margin: 1rem;}
+.overlay{align-items: center; background: $overlay-bg; display: none; flex-direction: column; height: 100%; justify-content: center; left: 0; position: fixed; text-align: center; top: 0; z-index: 9; width: 100%;}
+.overlay.open{display: flex;}
+.overlay.error{background: $overlay-error-bg;}
+.overlay > div{}
+.overlay > div.modal{background: $modal-bg; border-radius: $modal-border-radius; height: $modal-height; padding: $modal-padding; width: $modal-width;}
+// .overlay h1{color: #FFF; font-size: 2.5rem; margin-bottom: 0.75rem;}
+// .overlay p{color: #EEE; font-size: 1.25rem;}
+// .overlay .btn{background: #29050f;}
+// .overlay .btn:hover{background: #6a0924;}
 
 /* Cards */
-.card{background: #15000c; border: 1px solid antiquewhite; border-radius: 10px; box-shadow: 2px 2px 8px #c885ba; margin-top: 2rem; padding: 3rem 2rem;}
+.card{background: $card-bg; border: $card-border; border-radius: $card-border-radius; box-shadow: $card-shadow; padding: $card-padding;}
 .card p{color: antiquewhite; font-size: 1.25rem; line-height: 2rem; margin-bottom: 1.75rem;}
+
+/* Tabs */
+.active{background: #abe6c8 !important;}
+.tabs{border-bottom: 1px solid #CCC; float: right; width: 100%;}
+.tabs li{border: 1px solid #CCC; border-top-left-radius: 6px; border-top-right-radius: 6px; cursor: pointer; float: right; padding: 5px; user-select: none;}
+.tabs li:last-child{margin-right: 5px;}
 
 /* Hide or hide on desktop */
 .hide, .mob{display: none;}
 
 
-// .active{background: #abe6c8 !important;}
-// .tabs{border-bottom: 1px solid #CCC; float: right; width: 100%;}
-// .tabs li{border: 1px solid #CCC; border-top-left-radius: 6px; border-top-right-radius: 6px; cursor: pointer; float: right; padding: 5px; user-select: none;}
-// .tabs li:last-child{margin-right: 5px;}
+
 
 // .click-icons img{background: none; border: 1px solid #222; margin-left: 0.5rem; padding: 0.25rem; width: 1.75rem;}
 // .click-icons img.active{background: #fed2ff;}

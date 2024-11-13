@@ -1,0 +1,88 @@
+
+// Reusables in this file
+$shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.5);
+$trans: background 0.25s ease;
+
+// Colors
+$pri: red;
+$sec: orange;
+$ter: blue;
+
+// Paragraphs and Text
+$p-color: #333;
+$p-line-height: 1.625rem;
+$p-mar-bot: 1.5rem;
+$p-size: 1.25rem;
+
+
+// Links & Nav
+$link-color: cyan;
+$nav-base-bg: forestgreen;
+$nav-bg: green;
+$nav-bg-hover: darkgreen;
+$nav-link-color: navy;
+$nav-link-color-hover: cyan;
+$nav-link-padding: 10px;
+
+// Wrap & Container
+$wrap: 5%;
+$con: 1rem;
+
+// Tables
+$table-margin: 1rem 0;
+$th-bg: blue;
+$th-color: white;
+$th-padding: 4px;
+$td-border: 1px solid #EEE;
+$td-padding: 5px;
+
+// Labels & Inputs
+$label-color: #333;
+$label-mar-bot: 0.375rem;
+$label-size: 0.875rem;
+$input-bg: linear-gradient(to bottom, #fffdfd 0%, #fff4f4 100%);
+$input-border: 1px solid #333;
+$input-mar-bot: 1rem;
+$input-padding: 0.75rem 0.625rem;
+
+// Buttons
+$button-bg: linear-gradient(to bottom right, #ac2c2c 0%, #6b1039 100%);
+$button-color: white;
+$button-hover-bg: linear-gradient(to bottom right, #ac2c2c 0%, #6b1039 100%);
+$button-mar-top: 1.5rem;
+$button-padding: 4px 8px;
+$button-shadow: $shadow;
+$button-size: 1.25rem;
+$button-submit-mar-top: 2rem;
+$button-trans: background 0.25s ease;
+
+// Modals & Overlays
+$overlay-bg: rgba(19,156,113,0.92);
+$overlay-error-bg: rgba(244,4,39,0.92);
+$modal-bg: white;
+$modal-border-radius: 20px;
+$modal-height: 500px;
+$modal-padding: 10px 25px;
+$modal-width: 500px;
+
+// Cards 
+$card-bg: white;
+$card-border: 1px solid #CCC;
+$card-border-radius: 20px;
+$card-padding: 10px 25px;
+$card-shadow: $shadow; 
+
+// Scroll Bar
+$scroll-thumb-color: #444;
+$scroll-track-color: #111;
+$scroll-width: 8px;
+
+
+
+
+
+
+
+
+
+
