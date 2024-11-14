@@ -12,8 +12,9 @@ main{background: $main-bg; color: $main-color; flex: 1 0 auto; flex-direction: c
 /* Block display for certain tags */ 
 article, aside, block, details, figcaption, figure, .footer, .header, hgroup, input, label, menu, nav, section, textarea{display: block;}
 
-/* Flex clear for certain tags and clear class */
+/* Flex clear and wrap for basic blocks */
 .header, .nav, main, .footer, section{display: flex; flex-direction: column; flex-wrap: wrap;}
+.header, main, .footer{padding-left: $wrap; padding-right: $wrap;}
 
 /* H1 to H6 */
 h1, h2, h3, h4, h5, h6{font-weight: bold;}
@@ -30,8 +31,8 @@ a:hover{text-decoration: underline;}
 .nav ul{background: $nav-base-bg; display: flex;}
 .nav li{background: $nav-bg; flex: 1 1 0; text-align: center; transition: $trans;}
 .nav li:hover{background: $nav-bg-hover;}
-.nav li a{color: $nav-link-color; display: block; padding: $nav-link-padding;}
-.nav li:hover a{color: $nav-link-color-hover; text-decoration: none; width: 100%;}
+.nav li a{background: $nav-link-bg; color: $nav-link-color; display: block; padding: $nav-link-padding;}
+.nav li a:hover{background: $nav-link-bg-hover; color: $nav-link-color-hover; text-decoration: none; width: 100%;}
 
 /* Images */
 img{max-width:100%; vertical-align:bottom}
@@ -56,10 +57,13 @@ input, textarea{background: $input-bg; border: $input-border; display: block; ma
 label{color: $label-color; font-size: $label-size; font-weight: bold; $margin-bottom: $label-mar-bot; text-align: left; width: 100%;}
 input::placeholder{color: #BBB; font-size: 0.875rem;}
 
-/* Scroll bar */
+/* Scrollbar */
 ::-webkit-scrollbar{width: $scroll-width;}
 ::-webkit-scrollbar-track{background: $scroll-track-color;}
 ::-webkit-scrollbar-thumb{background: $scroll-thumb-color;}
+
+/* Selected text */
+::selection {background: $selected-bg; color: $selected-color;}
 
 
 

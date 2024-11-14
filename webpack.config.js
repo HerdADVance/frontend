@@ -1,7 +1,8 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 	mode: 'production', // with this, don't need --mode production in package.json
@@ -34,7 +35,14 @@ module.exports = {
 		          'css-loader',
 		          'sass-loader'
 		        ]
-			}
+			},
+			{
+		       	test: /\.(png|svg|jpg|jpeg|gif)$/i,
+		        type: 'asset/resource',
+		        generator: {
+		          filename: 'images/[name][ext]'
+		        }
+		    },
 		]
 	},
 	plugins: [
@@ -47,7 +55,16 @@ module.exports = {
 		}),
 		new MiniCssExtractPlugin({
 	    	filename: 'css/main.css'
-	    })
+	    }),
+	    new CopyWebpackPlugin({
+	      patterns: [
+	        { 
+	          from: path.resolve(__dirname, 'src/images'),
+	          to: path.resolve(__dirname, 'dist/images')
+	        }
+	      ],
+	    }),
+	    //new BundleAnalyzerPlugin()
 	],
 	// watch: true,
 	// watchOptions: {

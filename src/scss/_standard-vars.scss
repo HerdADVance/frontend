@@ -1,9 +1,9 @@
 @use 'sass:color';
 
 // Colors
-$pri: maroon;
-$sec: orange;
-$ter: blue;
+$pri: purple;
+$sec: limegreen;
+$ter: cyan;
 
 $pri-dark: color.scale($pri, $lightness: -40%);
 $sec-dark: color.scale($sec, $lightness: -40%);
@@ -18,6 +18,10 @@ $body-color: #333;
 $main-bg: antiquewhite;
 $main-color: #333;
 
+// Wrap & Container
+$wrap: 10%;
+$con: 1rem;
+
 // Font Size, Paragraphs and Text
 $font-size: 16px;
 $p-color: #333;
@@ -27,16 +31,14 @@ $p-size: 1.25rem;
 
 // Links & Nav
 $link-color: cyan;
-$nav-base-bg: forestgreen;
-$nav-bg: $pri;
-$nav-bg-hover: $pri-light;
-$nav-link-color: $ter;
+$nav-base-bg: none;
+$nav-bg: none;
+$nav-bg-hover: none;
+$nav-link-bg: $ter;
+$nav-link-bg-hover: $ter-dark;
+$nav-link-color: black;
 $nav-link-color-hover: $sec;
 $nav-link-padding: 10px;
-
-// Wrap & Container
-$wrap: 5%;
-$con: 1rem;
 
 // H1 to H6
 $h1-color: $pri;
@@ -111,6 +113,9 @@ $scroll-thumb-color: #444;
 $scroll-track-color: #111;
 $scroll-width: 8px;
 
+// Selected text
+$selected-bg: $ter;
+$selected-color: black;
 
 
 
